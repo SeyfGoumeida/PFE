@@ -53,6 +53,7 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
   
+  
 if (option=="BaseMagasin"):
 	OptionStatusMagasin = st.selectbox('Integré / Franchisé :',options= ('INTEGRE','FRANCHISE',))
 	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
@@ -63,10 +64,10 @@ if (option=="BaseMagasin"):
 		c1, c2= st.columns(2)
 		if (OptionStatusMagasin =="INTEGRE"):
 			c1.write(magasinsIntegre)
-			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsIntegre["Nom d'usage"].values))
+			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
 		if (OptionStatusMagasin =="FRANCHISE"):
-			c1.write(magasinsFranchise)
-			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsFranchise["Nom d'usage"].values)					
+			c1.write(magasinsFranchise) 
+			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsFranchise["Nom d'usage"].values))				
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
