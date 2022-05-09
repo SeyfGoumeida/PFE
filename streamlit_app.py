@@ -36,45 +36,20 @@ def space(num_lines=1):
     """Adds empty lines to the Streamlit app."""
     for _ in range(num_lines):
         st.write("")
-
-
-def google_drive(id:str) -> DataFrame:
-    SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
-    creds = Credentials.from_service_account_file(
-        "service-account.json",
-        scopes=SCOPES,
-    )
-    service = build(
-        "drive",
-        "v3",
-        credentials=creds,
-        cache_discovery=False,
-    )
-    request = service.files().get_media(fileId=id)
-    file = BytesIO()
-    downloader = MediaIoBaseDownload(file,request)
-    done = False
-    while done is False: _,done = downloader.next_chunk()
-    file.seek(0)
-    return read_csv(file)
 #---------------------------------------------------------------------------------
 # Key words
 option = st.sidebar.selectbox(
      'Choose words to creat dataset :',
      #('Covid19 & Severity',
-      ('BDD finale',
-      'Covid19 & Severity & Asthma',
-      'Covid19 & Severity & Cancer',
-      'Covid19 & Severity & Pneumonia',
-      'Covid19 & Severity & Diabetes',
-      'Covid19 & Severity & Hypertension')
+      ('BDD finale'
+      )
      )
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
 # number of articles to fetch
-nb = st.sidebar.slider('choose the number of articles to fetch', 0,10000,500)
-st.sidebar.write("You choosed    :", nb, ' articles')
+nb = st.sidebar.slider('choisir le nombre des magasins top', 0,270,100)
+st.sidebar.write("Vous avez choisi :", nb, ' magasins')
 space(1)
 
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -85,7 +60,7 @@ space(1)
   
 if (option=="BDD finale"):
 
-  df = google_drive("https://drive.google.com/file/d/1CvFtqIgC_1LwciVPZ6oyEpCEYUlloh9u/view?usp=sharing")
+  df = google_drive("./Data/BDD/BaseMagasin/BaseMagasin.csv")
   st.write(df)  
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
