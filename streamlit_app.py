@@ -1,4 +1,3 @@
-%%writefile app.py
 from os import sep
 import streamlit as st
 from datetime import datetime
