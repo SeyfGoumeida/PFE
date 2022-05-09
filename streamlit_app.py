@@ -54,9 +54,10 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="BaseMagasin integré"):
+  BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
+  magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
   with expander:
-	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
-  	magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+	
 	c1, c2,c3= st.columns(3)
 	
 	c1.header("BaseMagasin :")
