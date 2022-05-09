@@ -67,8 +67,8 @@ if (option=="BaseMagasin"):
 			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.write(magasinsFranchise) 
+			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsFranchise["Nom d'usage"].values))
-			c2.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
