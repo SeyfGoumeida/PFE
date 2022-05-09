@@ -55,8 +55,11 @@ space(1)
   
 if (option=="BDD finale"):
 
-  df = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
-  st.write(df)  
+  BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
+  magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+  magasins_Integrés
+  st.write(magasins_Integrés) 
+
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
