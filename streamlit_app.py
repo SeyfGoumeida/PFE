@@ -67,13 +67,10 @@ if (option=="BaseMagasin"):
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.write(magasinsFranchise) 
 			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsFranchise["Nom d'usage"].values)
-			col1nb, col2nb, col3nb = c2.columns(3)
+			col1nb, col2nb, col3nb = st.columns(3)
 			#st.dataframe(df.head(nb))
 			col1nb.metric(label="NUMBER OF ARTICLES", value=len(magasinsFranchise))
-			
 
-
-  
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
