@@ -38,11 +38,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox(
-     'Choose words to creat dataset :',
-      ('BDD finale'
-      )
-     )
+option = st.sidebar.selectbox('Choose words to creat dataset :',("BDD finale","" ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
