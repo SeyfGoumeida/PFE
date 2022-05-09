@@ -40,7 +40,6 @@ def space(num_lines=1):
 # Key words
 option = st.sidebar.selectbox(
      'Choose words to creat dataset :',
-     #('Covid19 & Severity',
       ('BDD finale'
       )
      )
