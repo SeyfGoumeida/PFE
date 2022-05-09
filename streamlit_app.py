@@ -66,7 +66,7 @@ if (option=="BaseMagasin"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
 			c1.write(magasinsIntegre)
 			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
-			c2.write(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])
+			c2.metric(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 			c1.write(magasinsFranchise) 
