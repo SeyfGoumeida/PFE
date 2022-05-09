@@ -64,11 +64,10 @@ if (option=="BaseMagasin"):
 		if (OptionStatusMagasin =="INTEGRE"):
 			c1.write(magasinsIntegre)
 			c2.header("Focus magasin :")
-			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
+			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsIntegre["Nom d'usage"].values))
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.write(magasinsFranchise) 
-			c2.header("Focus magasin :")
-			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsFranchise["Nom d'usage"].values))
+			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsFranchise["Nom d'usage"].values))
 
   
 #--------------------------------------------------------------------------------------------------------------------------------
