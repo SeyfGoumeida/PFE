@@ -1,3 +1,4 @@
+%%writefile app.py
 from os import sep
 import streamlit as st
 from datetime import datetime
@@ -11,50 +12,22 @@ import json
 import base64
 import textwrap
 import streamlit.components.v1 as components
-
-def render_svg(svg):
-    """Renders the given svg string."""
-    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
-    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
-    st.write(html, unsafe_allow_html=True)
-
-
-def render_svg_example():
-    svg = """
-    """
-    st.write('## Rendering an SVG in Streamlit')
-
-    st.write('### SVG Input')
-    st.code(textwrap.dedent(svg), 'svg')
-
-    st.write('### SVG Output')
-    render_svg(svg)
-
-
-def save_pet(filename,pet):
-    with open(filename, 'w') as f:
-        f.write(json.dumps(pet))
-        
-#---------------------------------
-
-def load_pet(filename):
-    with open(filename) as f:
-        pet = json.loads(f.read())
-    return pet
-
+from google.oauth2.service_account import Credentials
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseDownload
+from io import BytesIO
+from pandas import read_csv
+from pandas import DataFrame
 #--------------------------------------------------------------------------------
 st.set_page_config(layout="wide", page_icon="microbe", page_title="Covid19 Severity app")
-st.title("🦠 Covid-19 severity factors")
-st.sidebar.title(" 🦠 Covid-19 severity factors")
+st.title("📊 Nombre des caisses idéal APP")
+st.sidebar.title(" 📊 Nombre des caisses idéal APP")
 
-with st.expander("ℹ️ - About this app", expanded=False):
+with st.expander("ℹ️ - À propos de l'application :", expanded=False):
 
     st.write(
         """     
-Ce projet vise tout d’abord à identifier les profils de patients susceptibles de développer une forme grave de la maladie. Parallèlement à ce travail, il est également demander d’identifier les comorbidités principales en lien avec la COVID19. Plus précisémment, il s’agit d’identifier des marqueurs de prédictions d’intérêt pour la sévérité de la maladies
--   (1) Ce PPD a pour premier objectif d’analyser une corpus biomédical autour de la COVID19, et plus particulièrement des comorbidités et des facteurs de sévérité de la maladie.
--   (2) Le second objectif de ce projet est l’exploitation d’approche de fouille de texte et de NLP pour l’identification de ces facteurs et de leurs interactions..
-	    """
+Ce projet vise à predire le nombre idéal des caisse à mettre en place dans chaque magasin en se basant sur les KPIs, feedback, localisation, type de clientèle... """
     )
     
 st.markdown("")
@@ -68,12 +41,32 @@ def space(num_lines=1):
     for _ in range(num_lines):
         st.write("")
 
+
+def google_drive(id:str) -> DataFrame:
+    SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
+    creds = Credentials.from_service_account_file(
+        "service-account.json",
+        scopes=SCOPES,
+    )
+    service = build(
+        "drive",
+        "v3",
+        credentials=creds,
+        cache_discovery=False,
+    )
+    request = service.files().get_media(fileId=id)
+    file = BytesIO()
+    downloader = MediaIoBaseDownload(file,request)
+    done = False
+    while done is False: _,done = downloader.next_chunk()
+    file.seek(0)
+    return read_csv(file)
 #---------------------------------------------------------------------------------
 # Key words
 option = st.sidebar.selectbox(
      'Choose words to creat dataset :',
      #('Covid19 & Severity',
-      ('Covid19 & Severity & Obesity',
+      ('BDD finale',
       'Covid19 & Severity & Asthma',
       'Covid19 & Severity & Cancer',
       'Covid19 & Severity & Pneumonia',
@@ -94,36 +87,10 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
   
-if (option=="Covid19 & Severity & Asthma"):
-  df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/text_cleaned_asthma_alldf.csv") 
-  df.drop(columns="Unnamed: 0",inplace=True) 
-  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
-  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
-  new_df.columns = ['Word', 'Frequency'] 
-  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/top_words_asthma_cocluster_"
-  nbClusters = 9
-  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
-  with expandernb:
-     col1nb, col2nb, col3nb = st.columns(3)
-     #st.dataframe(df.head(nb))
-     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
-     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
-     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
-    #--------------------------------------------------------------------------------------------------------------------------------
-  expander = st.expander("See all articles :", expanded=False)
-  with expander:
-    st.dataframe(df.head(nb))
+if (option=="BDD finale"):
 
-  #--------------------------------------------------------------------------------------------------------------------------------
-  st.header("")
-  st.markdown("## 📊 Co-Clusters : ")
-  expander = st.expander("Clusters size :", expanded=False)
-  with expander:
-    c1, c2,c3= st.columns([2,6,2])
-    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png",caption='Co-clusters sizes (nb of articles - nb of words)')
-  selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5','6','7','8','9'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/graph_sim_asthma_cluster_"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/NER_asthma_cocluster_"
+  df = google_drive("https://drive.google.com/file/d/1CvFtqIgC_1LwciVPZ6oyEpCEYUlloh9u/view?usp=sharing")
+  st.write(df)  
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
