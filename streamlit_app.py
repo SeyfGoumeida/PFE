@@ -64,9 +64,9 @@ if (option=="BaseMagasin"):
 		c1, c2= st.columns(2)
 		if (OptionStatusMagasin =="INTEGRE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
-			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
 			c1.write(magasinsIntegre)
 			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
+			c1.metric(label="Nombre des magasins ", value=magasinsFranchise[magasinsFranchise["Nom d'usage"]==optionNomMagasin]["Cluster"])
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 			c1.write(magasinsFranchise) 
