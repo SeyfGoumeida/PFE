@@ -65,9 +65,9 @@ if (option=="BaseMagasin"):
 			c1.write(magasinsIntegre)
 			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsIntegre["Nom d'usage"].values))
 		if (OptionStatusMagasin =="FRANCHISE"):
-			c1.write(magasinsFranchise) 
-			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsFranchise["Nom d'usage"].values)
+			c1.write(magasinsFranchise)
 			c2.write("qzdqzd")
+			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsFranchise["Nom d'usage"].values)
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
