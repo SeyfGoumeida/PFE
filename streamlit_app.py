@@ -57,8 +57,8 @@ if (option=="BaseMagasin integré"):
 
   BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
   magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+  option1 = st.selectbox('Choose words to creat dataset:',options= list(magasins_Integrés["Nom d'usage"].values))
   st.write(magasins_Integrés) 
-  option1 = st.sidebar.selectbox('Choose words to creat dataset:',options= list(magasins_Integrés["Nom d'usage"].values))
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
