@@ -63,7 +63,6 @@ if (option=="BaseMagasin"):
 		c1, c2= st.columns(2)
 		if (OptionStatusMagasin =="INTEGRE"):
 			c1.write(magasinsIntegre)
-			c2.header("Focus magasin :")
 			optionNomMagasin = c2.selectbox("Focus sur un magasin :",options= list(magasinsIntegre["Nom d'usage"].values))
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.write(magasinsFranchise) 
