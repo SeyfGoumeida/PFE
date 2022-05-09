@@ -54,11 +54,11 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="BaseMagasin"):
-	expander = st.expander("", expanded=False)
+	OptionStatusMagasin = st.selectbox('Integré / Franchisé :',options= ('INTEGRE','FRANCHISE',))
 	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
 	magasinsIntegre =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
 	magasinsFranchise =BaseMagasin.loc[BaseMagasin['Statut'] == "FRANCHISE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
-	OptionStatusMagasin = st.selectbox('Integré / Franchisé :',options= ('INTEGRE','FRANCHISE',))
+	expander = st.expander("", expanded=False)
 	with expander:
 		c1, c2= st.columns(2)
 		if (OptionStatusMagasin =="INTEGRE"):
