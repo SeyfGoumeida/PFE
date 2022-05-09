@@ -27,7 +27,7 @@ Ce projet vise à predire le nombre idéal des caisse à mettre en place dans ch
     )
     
 st.markdown("")
-st.markdown("## 📄 Articles : ")
+st.markdown("## 📄 BaseMagasin integré : ")
 #--------------------------------------------------------------------------------
 #--------------------------------Functions---------------------------------------
 #--------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Choose words to creat dataset :',("BDD finale","" ))
+option = st.sidebar.selectbox('Choose words to creat dataset :',("BaseMagasin integré", ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
   
-if (option=="BDD finale"):
+if (option=="BaseMagasin integré"):
 
   BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
   magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
