@@ -68,7 +68,7 @@ if (option=="BaseMagasin"):
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.write(magasinsFranchise) 
 			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsFranchise["Nom d'usage"].values))
-			st.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
+			c2.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
