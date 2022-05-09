@@ -11,9 +11,6 @@ import json
 import base64
 import textwrap
 import streamlit.components.v1 as components
-from google.oauth2.service_account import Credentials
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaIoBaseDownload
 from io import BytesIO
 from pandas import read_csv
 from pandas import DataFrame
