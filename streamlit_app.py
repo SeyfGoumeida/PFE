@@ -27,7 +27,7 @@ Ce projet vise à predire le nombre idéal des caisse à mettre en place dans ch
     )
     
 st.markdown("")
-st.markdown("## 📄 BaseMagasin integré : ")
+st.markdown("## 📄 BaseMagasin : ")
 #--------------------------------------------------------------------------------
 #--------------------------------Functions---------------------------------------
 #--------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Choose words to creat dataset :',("BaseMagasin integré", ))
+option = st.sidebar.selectbox('Choose words to creat dataset :',("BaseMagasin", ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
@@ -53,15 +53,23 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
   
-if (option=="BaseMagasin integré"):
-	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
-	magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+if (option=="BaseMagasin"):
 	expander = st.expander("", expanded=False)
+	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
+	magasinsIntegre =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+	magasinsFranchise =BaseMagasin.loc[BaseMagasin['Statut'] == "FRANCHISE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+	
 	with expander:
+		OptionStatusMagasin = st.selectbox('Integré / Franchisé :',options= ('INTEGRE','FRANCHISE',))
 		c1, c2= st.columns(2)
-		c1.write(magasins_Integrés) 
-		c2.header("Focus magasin :")
-		option1 = c2.selectbox('Choose words to creat dataset:',options= list(magasins_Integrés["Nom d'usage"].values))
+		if (OptionStatusMagasin =="INTEGRE"):
+			c1.write(magasinsIntegre)
+			c2.header("Focus magasin :")
+			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
+		if (OptionStatusMagasin =="FRANCHISE"):
+			c1.write(magasinsFranchise) 
+			c2.header("Focus magasin :")
+			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsFranchise["Nom d'usage"].values))
 
   
 #--------------------------------------------------------------------------------------------------------------------------------
