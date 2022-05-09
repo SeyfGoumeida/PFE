@@ -54,15 +54,15 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="BaseMagasin integré"):
-  BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
-  magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
-  expander = st.expander("BaseMagasin", expanded=False)
-  with expander:
-	c1, c2,c3= st.columns(3)
-	c1.header("BaseMagasin :")
-  	c1.write(magasins_Integrés) 
-	c2.header("Focus magasin :")
-	option1 = c2.selectbox('Choose words to creat dataset:',options= list(magasins_Integrés["Nom d'usage"].values))
+	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
+	magasins_Integrés =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
+	expander = st.expander("BaseMagasin", expanded=False)
+	with expander:
+		c1, c2= st.columns(2)
+		c1.header("BaseMagasin :")
+		c1.write(magasins_Integrés) 
+		c2.header("Focus magasin :")
+		option1 = c2.selectbox('Choose words to creat dataset:',options= list(magasins_Integrés["Nom d'usage"].values))
 
   
 #--------------------------------------------------------------------------------------------------------------------------------
