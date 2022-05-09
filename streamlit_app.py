@@ -63,6 +63,8 @@ if (option=="BaseMagasin"):
 	with expander:
 		c1, c2= st.columns(2)
 		if (OptionStatusMagasin =="INTEGRE"):
+			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
+			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
 			c1.write(magasinsIntegre)
 			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
 		if (OptionStatusMagasin =="FRANCHISE"):
