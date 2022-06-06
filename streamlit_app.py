@@ -142,7 +142,8 @@ if (option=="Systemes de scoring"):
 
 
 	if(optionScoring=="Attente en caisse - Non pénalisant" or optionScoring=="Attente en caisse - pénalisant"):
-		st.text("Il consiste a aﬀecter des points à un magasin dans chaque quart d’heure d’ouverture selon le nombre des clients dans l’attente en caisse. Plus un magasin a de l’attente moins de point il aura: 0 clients dans l’attente en caisse : 3 points, 1 clients dans l’attente en caisse : 2 points, 2 clients dans l’attente en caisse : 1 points, 3 clients ou plus dans l’attente en caisse : 0 pointsCe système favorise les magasins qui ont moins d’attente mais il ne pénalise pas ceux qui ont trop d’attente, c’est pour cela on a proposé un deuxième système de scoring")
+		st.caption("Il consiste a aﬀecter des points à un magasin dans chaque quart d’heure d’ouverture selon le nombre des clients dans l’attente en caisse. Plus un magasin a de l’attente moins de point il aura: 0 clients dans l’attente en caisse : 3 points, 1 clients dans l’attente en caisse : 2 points, 2 clients dans l’attente en caisse : 1 points, 3 clients ou plus dans l’attente en caisse : 0 pointsCe système favorise les magasins qui ont moins d’attente mais il ne pénalise pas ceux qui ont trop d’attente, c’est pour cela on a proposé un deuxième système de scoring")
+		st.subheader("Il consiste a aﬀecter des points à un magasin dans chaque quart d’heure d’ouverture selon le nombre des clients dans l’attente en caisse. Plus un magasin a de l’attente moins de point il aura: 0 clients dans l’attente en caisse : 3 points, 1 clients dans l’attente en caisse : 2 points, 2 clients dans l’attente en caisse : 1 points, 3 clients ou plus dans l’attente en caisse : 0 pointsCe système favorise les magasins qui ont moins d’attente mais il ne pénalise pas ceux qui ont trop d’attente, c’est pour cela on a proposé un deuxième système de scoring")
 		scoring1_2
 	else:
 		scoring3
