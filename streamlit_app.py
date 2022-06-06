@@ -116,10 +116,10 @@ if (option=="Passage Client"):
 		c1, c2= st.columns(2)
 		c1.pyplot(fig1)
 		c2.pyplot(fig2)
-		st.write("Focus magasin :")
+		expander.write("Focus magasin :")
 		magasinPassageCleint
 
-	expander.write("Tous les magasins :")
+	st.write("Tous les magasins :")
 	passageClient
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 if (option=="Systemes de scoring"):
