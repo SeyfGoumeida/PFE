@@ -101,7 +101,7 @@ if (option=="Passage Client"):
 	passageClient =BDDtmpNbClient[["Jour","Date","Code","Magasin","nb_client_trad","nb_client_sco"]]
 	# Group by Day : 
 	passageClient = passageClient.groupby(["Jour","Date","Code","Magasin"]).sum().sort_values(by=['nb_client_trad'], ascending=False).reset_index()
-	passageClient
+	
 	
 	expander = st.expander("", expanded=False)
 	with expander:
@@ -121,5 +121,5 @@ if (option=="Passage Client"):
 		c1.pyplot(fig1)
 		c2.pyplot(fig2)
 
-
+	passageClient
 			
