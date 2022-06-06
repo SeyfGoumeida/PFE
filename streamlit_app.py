@@ -104,12 +104,11 @@ if (option=="Passage Client"):
 	
 	expander = st.expander("", expanded=False)
 	with expander:
-		sns.set(rc ={'figure.figsize':(8,6)})
-		#for i in range(0,len(list_anabel)):
 		magasinPassageCleint = passageClient[passageClient['Code'] == 7889]
 		magasinPassageCleint
-		plt.figure()
-		fig = sns.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
-		st.pyplot(fig)
+		fig6, ax6 = plt.subplots()
+		ax6.set_title('Box Plot du passage client')
+		ax6.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
+		expander.pyplot(fig6)
 		c1, c2= st.columns(2)
 			
