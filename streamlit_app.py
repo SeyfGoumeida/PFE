@@ -108,9 +108,9 @@ if (option=="Passage Client"):
 		magasinsIntegres = passageClient["Magasin"].values
 		optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= sorted(list(set(list(magasinsIntegres)))))
 		magasinPassageCleint = passageClient[passageClient['Magasin'] == optionNomMagasin]
-		fig6, ax6 = plt.subplots()
-		ax6.set_title('Box Plot du passage client')
-		ax6.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
-		expander.pyplot(fig6)
+		fig1, ax1 = plt.subplots()
+		ax1.set_title('Box Plot du passage client')
+		ax1.boxplot(sorted(magasinPassageCleint['nb_client_trad']),vert=False,flierprops=red_square)
+		expander.pyplot(fig1)
 		c1, c2= st.columns(2)
 			
