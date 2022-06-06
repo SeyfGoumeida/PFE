@@ -72,6 +72,7 @@ if (option=="BaseMagasin"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 			c1.write(magasinsFranchise) 
 			optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsFranchise["Nom d'usage"].values))
+			c1.write(optionNomMagasin)
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([9,3])
 expander1 = c1.expander('Most frequente works :', expanded=False)
