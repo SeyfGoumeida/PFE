@@ -66,7 +66,11 @@ if (option=="BaseMagasin"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
 			c1.write(magasinsIntegre)
 			optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsIntegre["Nom d'usage"].values))
-			c2.metric(label="Cluster", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])[0])
+			c2.metric(label="Cluster du magasin :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])[0])
+			c2.metric(label="Type de clients :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster Profil de Clientèle"])[0])
+			c2.metric(label="Saisonalité :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Magasin Saisonnier"])[0])
+			c2.metric(label="Nombre de caisses traditionnelles :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Nombre Caisses (hors SCO et périphéries)"])[0])
+			c2.metric(label="Nombre de caisses SCO :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Nombre total de Caisses SCO"])[0])
 
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
