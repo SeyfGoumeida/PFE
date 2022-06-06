@@ -34,7 +34,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Pages :',("BaseMagasin","Passage Client","Systemes de scoring" ))
+option = st.sidebar.selectbox('Pages :',("BaseMagasin","Passage Client","Systemes de scoring","Resultats" ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
@@ -148,8 +148,22 @@ if (option=="Systemes de scoring"):
 	else:
 		st.caption("Ce système se concentre sur une autre variable qui est ”La redondance”, ce KPI représente une FLAG qui peut être à 0 ou 1, 1 si le magasin a fait un taux d’attente des trois clients ou plus supérieur à 5% dans la journée et 0 sinon. Si on fait la somme par magasin sur cette variable on obtient le nombre des fois ou le magasins a dépassé les 5% , et en les classant par ordre croissant on peut distinguer les magasin TOP et FLOP selon ce critère")
 		scoring3
-	   
-	   
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+if (option=="Résultats"):
+	st.markdown("## 🔑 Résultats : ")	
+	optionScoring = st.selectbox('Selectionner un algorithme d\'apprentissage machine :',options= ["LR","Tree","KNR"])
+	if(optionScoring=="LR" ):
+		filepath = "./Results/LR/MinMaxAvgReal.csv"	
+		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
+		result
+	elif(optionScoring=="Tree"):
+		filepath = "./Results/Tree/MinMaxAvgRealTree.csv"	
+		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
+		result
+	else:
+		filepath = "./Results/KNR/MinMaxAvgRealKNR.csv"	
+		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
+		result   
 	   
 	   
 	   
