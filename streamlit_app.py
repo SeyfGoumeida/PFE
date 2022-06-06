@@ -111,6 +111,8 @@ if (option=="Passage Client"):
 		fig1, ax1 = plt.subplots()
 		ax1.set_title('Box Plot du passage client')
 		ax1.boxplot(sorted(magasinPassageCleint['nb_client_trad']),vert=False, notch=True)
-		expander.pyplot(fig1)
+		#----------------------------------------------------------------------------------
 		c1, c2= st.columns(2)
+		c1.pyplot(fig1)
+
 			
