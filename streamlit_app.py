@@ -33,7 +33,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Choose words to creat dataset :',("BaseMagasin","Passage Client" ))
+option = st.sidebar.selectbox('Pages :',("BaseMagasin","Passage Client","Systemes de scoring" ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
@@ -121,4 +121,6 @@ if (option=="Passage Client"):
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 if (option=="Systemes de scoring"):
 	st.markdown("## 🥇🥈🥉 Systemes de scoring : ")	
+	optionScoring = st.selectbox('Selectionner un systeme :',options= ["Attente en caisse - Non pénalisant","Attente en caisse - pénalisant","Redondance - Picasso"])
+-
 
