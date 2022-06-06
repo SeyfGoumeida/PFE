@@ -44,7 +44,7 @@ st.sidebar.write('You selected   :', option)
 # number of articles to fetch
 nb = st.sidebar.slider('choisir le nombre des magasins top', 0,270,100)
 st.sidebar.write("Vous avez choisi :", nb, ' magasins')
-space(20)
+st.sidebar.space(20)
 st.sidebar.caption("@Copyrights to Seyf GOUMEIDA")
 
 
