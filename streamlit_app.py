@@ -16,6 +16,9 @@ from pandas import read_csv
 from pandas import DataFrame
 #--------------------------------------------------------------------------------
 st.set_page_config(layout="wide", page_icon="microbe", page_title="Covid19 Severity app")
+st.sidebar.title(" 📊 Nombre idéal des caisses")
+st.sidebar.write("@Copyrights to Seyf GOUMEIDA")
+
 with st.expander("ℹ️ - À propos de l'application :", expanded=False):
     st.write(
         """     
