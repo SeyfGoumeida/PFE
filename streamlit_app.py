@@ -95,11 +95,11 @@ if (option=="Passage Client"):
 	#----------------------------------------------------------------
 	BDDtmpNbClient =BDDtmpNbClient.astype({"stoAnabelKey": int,"hour": str})
 	#----------------------------------------------------------------
-	BDDtmpNbClient= BDDtmpNbClient.rename(columns={"creationDate":"Date"})
+	#BDDtmpNbClient= BDDtmpNbClient.rename(columns={"creationDate":"Date"})
 	BDDtmpNbClient= BDDtmpNbClient.rename(columns={"stoAnabelKey":"Code"})
-	passageClient =BDDtmpNbClient[["Jour","Date","Code","Magasin","nb_client_trad","nb_client_sco"]]
+	passageClient =BDDtmpNbClient[["Jour","creationDate","Code","Magasin","nb_client_trad","nb_client_sco"]]
 	# Group by Day : 
-	passageClient = passageClient.groupby(["Date","Code","Magasin","Jour"]).sum().sort_values(by=['nb_client_trad'], ascending=False).reset_index()
+	passageClient = passageClient.groupby(["creationDate","Code","Magasin","Jour"]).sum().sort_values(by=['nb_client_trad'], ascending=False).reset_index()
 	passageClient
 	
 	expander = st.expander("", expanded=False)
