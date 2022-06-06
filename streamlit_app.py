@@ -110,7 +110,7 @@ if (option=="Passage Client"):
 		magasinPassageCleint = passageClient[passageClient['Magasin'] == optionNomMagasin]
 		fig1, ax1 = plt.subplots()
 		ax1.set_title('Box Plot du passage client')
-		ax1.boxplot(sorted(magasinPassageCleint['nb_client_trad']),vert=False)
+		ax1.boxplot(sorted(magasinPassageCleint['nb_client_trad']),vert=False, notch=True, flierprops=green_diamond)
 		expander.pyplot(fig1)
 		c1, c2= st.columns(2)
 			
