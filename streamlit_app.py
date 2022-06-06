@@ -27,7 +27,6 @@ Ce projet vise à predire le nombre idéal des caisse à mettre en place dans ch
     )
     
 st.markdown("")
-st.markdown("## 📄 BaseMagasin : ")
 #--------------------------------------------------------------------------------
 #--------------------------------Functions---------------------------------------
 #--------------------------------------------------------------------------------
@@ -55,6 +54,7 @@ space(1)
   
   
 if (option=="BaseMagasin"):
+	st.markdown("## 📄 BaseMagasin : ")
 	OptionStatusMagasin = st.selectbox('Integré / Franchisé :',options= ('INTEGRE','FRANCHISE',))
 	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
 	magasinsIntegre =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
