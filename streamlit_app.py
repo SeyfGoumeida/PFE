@@ -34,7 +34,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Pages :',("BaseMagasin","Passage Client","Systemes de scoring","Resultats" ))
+option = st.sidebar.selectbox('Pages :',("BaseMagasin","Passage Client","Systemes de scoring","Résultats" ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
@@ -151,12 +151,12 @@ if (option=="Systemes de scoring"):
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 if (option=="Résultats"):
 	st.markdown("## 🔑 Résultats : ")	
-	optionScoring = st.selectbox('Selectionner un algorithme d\'apprentissage machine :',options= ["LR","Tree","KNR"])
-	if(optionScoring=="LR" ):
+	optionResult = st.selectbox('Selectionner un algorithme d\'apprentissage machine :',options= ["LR","Tree","KNR"])
+	if(optionResult=="LR" ):
 		filepath = "./Results/LR/MinMaxAvgReal.csv"	
 		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
 		result
-	elif(optionScoring=="Tree"):
+	elif(optionResult=="Tree"):
 		filepath = "./Results/Tree/MinMaxAvgRealTree.csv"	
 		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
 		result
