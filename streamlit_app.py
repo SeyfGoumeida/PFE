@@ -141,11 +141,13 @@ if (option=="Systemes de scoring"):
 	c1, c2= st.columns(2)
 
 
-	if(optionScoring=="Attente en caisse - Non pénalisant" or optionScoring=="Attente en caisse - pénalisant"):
+	if(optionScoring=="Attente en caisse - Non pénalisant" ):
 		st.caption("Il consiste a aﬀecter des points à un magasin dans chaque quart d’heure d’ouverture selon le nombre des clients dans l’attente en caisse. Plus un magasin a de l’attente moins de point il aura: 0 clients dans l’attente en caisse : 3 points, 1 clients dans l’attente en caisse : 2 points, 2 clients dans l’attente en caisse : 1 points, 3 clients ou plus dans l’attente en caisse : 0 pointsCe système favorise les magasins qui ont moins d’attente mais il ne pénalise pas ceux qui ont trop d’attente, c’est pour cela on a proposé un deuxième système de scoring")
 		scoring1_2
-	else:
+	elif(optionScoring=="Attente en caisse - pénalisant"):
 		st.caption("Il reprend le même principe que le système 1 mais cette fois en pénalisant les quarts d’heureou le magasin cumule trois clients ou plus dans l’attente en caisse, 0 clients dans l’attente en caisse : 5 points, 1 clients dans l’attente en caisse : 2 points, 2 clients dans l’attente en caisse : 0 points, 3 clients ou plus dans l’attente en caisse : -5 points. Ce système favorise les magasins qui ont moins d’attente et pénalise aussi ceux qui ont trop d’attente, exemple : à 10h :00 on note 0 client en attente, ça fait un cumule de 5 points, après à 10h :15 on note 4 clients ça fait -5 points, donc un total de 0 points. Si on applique le système 1 sur le même exemple ça nous donne un total de 3 points alors que le magasins a vu un quart d’heure bien chargé.")
+		scoring1_2
+	else:	
 		scoring3
 	   
 	   
