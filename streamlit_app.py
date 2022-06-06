@@ -37,7 +37,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Choose words to creat dataset :',("BaseMagasin", ))
+option = st.sidebar.selectbox('Choose words to creat dataset :',("BaseMagasin","Passage Client" ))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
@@ -80,6 +80,28 @@ if (option=="BaseMagasin"):
 			c2.metric(label="Nombre de caisses SCO :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Nombre total de Caisses SCO"])[0])
 			c2.metric(label="Cluster du magasin :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])[0])
 			c2.metric(label="Type de clients :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster Profil de Clientèle"])[0])#------------------------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+if (option=="Passage Client"):
+	st.markdown("## 📊 Passage Client : ")
+	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
+	#----------------------------------------------------------------
+	link = "./Data/WEX/passageClientWexFinale.csv"
+	BDDtmpNbClient = pd.read_csv(link, sep=",",encoding='latin-1')
+	BDDtmpNbClient = BDDtmpNbClient.drop(columns=['Unnamed: 0'])
+	#----------------------------------------------------------------
+	BDDtmpNbClient =BDDtmpNbClient.astype({"stoAnabelKey": int,"hour": str})
+	#----------------------------------------------------------------
+	BDDtmpNbClient= BDDtmpNbClient.rename(columns={"creationDate": "date"})
+	passageClient =BDDtmpNbClient
+	# Group by Day : 
+	passageClient = passageClient.groupby(["date","stoAnabelKey","Magasin","Jour"]).sum().sort_values(by=['nb_client_trad'], ascending=False).reset_index()
+	passageClient
+	
+	expander = st.expander("", expanded=False)
+	with expander:
+		c1, c2= st.columns(2)
+			
 c1, c2= st.columns([9,3])
 expander1 = c1.expander('Most frequente works :', expanded=False)
 expander2 = c2.expander('Show cluster words : ', expanded=False)
