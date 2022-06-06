@@ -106,6 +106,7 @@ if (option=="Passage Client"):
 	expander = st.expander("", expanded=False)
 	with expander:
 		magasinsIntegres = passageClient["Magasin"].groupby("Magasin").values
+		magasinsIntegres
 		optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= list(magasinsIntegres)
 		magasinPassageCleint = passageClient[passageClient['Magasin'] == optionNomMagasin]
 		fig6, ax6 = plt.subplots()
