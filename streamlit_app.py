@@ -147,7 +147,8 @@ if (option=="Systemes de scoring"):
 	elif(optionScoring=="Attente en caisse - pénalisant"):
 		st.caption("Il reprend le même principe que le système 1 mais cette fois en pénalisant les quarts d’heureou le magasin cumule trois clients ou plus dans l’attente en caisse, 0 clients dans l’attente en caisse : 5 points, 1 clients dans l’attente en caisse : 2 points, 2 clients dans l’attente en caisse : 0 points, 3 clients ou plus dans l’attente en caisse : -5 points. Ce système favorise les magasins qui ont moins d’attente et pénalise aussi ceux qui ont trop d’attente, exemple : à 10h :00 on note 0 client en attente, ça fait un cumule de 5 points, après à 10h :15 on note 4 clients ça fait -5 points, donc un total de 0 points. Si on applique le système 1 sur le même exemple ça nous donne un total de 3 points alors que le magasins a vu un quart d’heure bien chargé.")
 		scoring1_2
-	else:	
+	else:
+		st.caption("Ce système se concentre sur une autre variable qui est ”La redondance”, ce KPI représente une FLAG qui peut être à 0 ou 1, 1 si le magasin a fait un taux d’attente des trois clients ou plus supérieur à 5% dans la journée et 0 sinon. Si on fait la somme par magasin sur cette variable on obtient le nombre des fois ou le magasins a dépassé les 5% , et en les classant par ordre croissant on peut distinguer les magasin TOP et FLOP selon ce critère")
 		scoring3
 	   
 	   
