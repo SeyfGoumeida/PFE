@@ -66,7 +66,7 @@ if (option=="BaseMagasin"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
 			c1.write(magasinsIntegre)
 			optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsIntegre["Nom d'usage"].values))
-			c2.metric(label="Cluster", value= BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"][0])
+			c2.metric(label="Cluster", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]=="AIRAINES"]["Cluster"])[0])
 
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
