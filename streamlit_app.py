@@ -24,9 +24,6 @@ with st.expander("ℹ️ - À propos de l'application :", expanded=False):
 Ce projet vise à predire le nombre idéal des caisse à mettre en place dans chaque magasin en se basant sur les KPIs, feedback, localisation, type de clientèle... """
     )
     st.caption("@Copyrights to Seyf GOUMEIDA")
-
-    
-st.markdown("")
 #--------------------------------------------------------------------------------
 #--------------------------------Functions---------------------------------------
 #--------------------------------------------------------------------------------
@@ -44,7 +41,6 @@ st.sidebar.write('You selected   :', option)
 # number of articles to fetch
 nb = st.sidebar.slider('choisir le nombre des magasins top', 0,270,100)
 st.sidebar.write("Vous avez choisi :", nb, ' magasins')
-st.sidebar.space(20)
 st.sidebar.caption("@Copyrights to Seyf GOUMEIDA")
 
 
