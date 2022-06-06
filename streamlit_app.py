@@ -117,6 +117,7 @@ if (option=="Passage Client"):
 		c1.pyplot(fig1)
 		c2.pyplot(fig2)
 
+	magasinPassageCleint
 	passageClient
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 if (option=="Systemes de scoring"):
