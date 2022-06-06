@@ -59,7 +59,7 @@ if (option=="BaseMagasin"):
 	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
 	magasinsIntegre =BaseMagasin.loc[BaseMagasin['Statut'] == "INTEGRE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
 	magasinsFranchise =BaseMagasin.loc[BaseMagasin['Statut'] == "FRANCHISE"][["Nom d'usage","CADANA : Anabel"]].reset_index().drop(columns=['index'])
-	expander = st.expander("", expanded=False)
+	expander = st.expander("", expanded=True)
 	with expander:
 		c1, c2= st.columns(2)
 		if (OptionStatusMagasin =="INTEGRE"):
@@ -103,7 +103,7 @@ if (option=="Passage Client"):
 	passageClient = passageClient.groupby(["Jour","Date","Code","Magasin"]).sum().sort_values(by=['nb_client_trad'], ascending=False).reset_index()
 	
 	
-	expander = st.expander("", expanded=False)
+	expander = st.expander("", expanded=True)
 	with expander:
 		magasinsIntegres = passageClient["Magasin"].values
 		optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= sorted(list(set(list(magasinsIntegres)))))
