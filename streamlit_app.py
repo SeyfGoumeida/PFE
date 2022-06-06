@@ -91,6 +91,7 @@ if (option=="Passage Client"):
 	  part = pd.read_csv(filepath, sep=",",encoding='latin-1')
 	  frames.append(part)
 	BDDtmpNbClient = pd.concat(frames)
+	len(BDDtmpNbClient)
 	BDDtmpNbClient = BDDtmpNbClient.drop(columns=['Unnamed: 0'])
 	#----------------------------------------------------------------
 	BDDtmpNbClient =BDDtmpNbClient.astype({"stoAnabelKey": int,"hour": str})
@@ -104,7 +105,7 @@ if (option=="Passage Client"):
 	
 	expander = st.expander("", expanded=False)
 	with expander:
-		optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= list(passageClient["Magasin"].values))
+		optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= list(passageClient["Magasin"].groupby("Magasin").values)
 		magasinPassageCleint = passageClient[passageClient['Magasin'] == optionNomMagasin]
 		fig6, ax6 = plt.subplots()
 		ax6.set_title('Box Plot du passage client')
