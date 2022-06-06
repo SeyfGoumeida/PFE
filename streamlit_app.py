@@ -104,5 +104,15 @@ if (option=="Passage Client"):
 	
 	expander = st.expander("", expanded=False)
 	with expander:
+		sns.set(rc ={'figure.figsize':(8,6)})
+		#for i in range(0,len(list_anabel)):
+		magasinPassageCleint = passageClient[passageClient['stoAnabelKey'] == list_anabel[0]]
+		plt.figure()
+		sns.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
+		plt.show()
+		plt.figure()
+		sns.scatterplot (x=magasinPassageCleint["date"], y=magasinPassageCleint['nb_client_trad'], hue=magasinPassageCleint['Jour'],style=magasinPassageCleint['Jour'],size=magasinPassageCleint['Jour'])
+		plt.show()
+		expander.
 		c1, c2= st.columns(2)
 			
