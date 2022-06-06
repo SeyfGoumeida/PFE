@@ -65,13 +65,13 @@ if (option=="BaseMagasin"):
 		if (OptionStatusMagasin =="INTEGRE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsIntegre))
 			c1.write(magasinsIntegre)
-			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsIntegre["Nom d'usage"].values))
-			c2.metric("Cluster", BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])
+			optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsIntegre["Nom d'usage"].values))
+			c2.metric(label="Cluster", value= BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])
 
 		if (OptionStatusMagasin =="FRANCHISE"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 			c1.write(magasinsFranchise) 
-			optionNomMagasin = c2.selectbox('Choose words to creat dataset:',options= list(magasinsFranchise["Nom d'usage"].values))
+			optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsFranchise["Nom d'usage"].values))
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([9,3])
 expander1 = c1.expander('Most frequente works :', expanded=False)
