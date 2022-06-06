@@ -83,11 +83,14 @@ if (option=="BaseMagasin"):
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------
 if (option=="Passage Client"):
-	st.markdown("## 📊 Passage Client : ")
-	BaseMagasin = pd.read_csv("./Data/BaseMagasin/BaseMagasin.csv", sep=";",encoding='latin-1')
-	#----------------------------------------------------------------
-	link = "./Data/WEX/passageClientWexFinale.csv"
-	BDDtmpNbClient = pd.read_csv(link, sep=",",encoding='latin-1')
+	st.markdown("## 📊 Passage Client : ")	
+	
+	frames =[]
+	for i in range(1,4):
+	  filepath = "./Data/WEX/passageClientWexFinale_0"+str(i)+".csv"
+	  part = pd.read_csv(filepath, sep=",",encoding='latin-1')
+	  frames.append(part)
+	BDDtmpNbClient = pd.concat(frames)
 	BDDtmpNbClient = BDDtmpNbClient.drop(columns=['Unnamed: 0'])
 	#----------------------------------------------------------------
 	BDDtmpNbClient =BDDtmpNbClient.astype({"stoAnabelKey": int,"hour": str})
