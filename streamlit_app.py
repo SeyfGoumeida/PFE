@@ -17,13 +17,14 @@ from pandas import DataFrame
 #--------------------------------------------------------------------------------
 st.set_page_config(layout="wide", page_icon="microbe", page_title="Covid19 Severity app")
 st.sidebar.title(" 📊 Nombre idéal des caisses")
-st.sidebar.write("@Copyrights to Seyf GOUMEIDA")
 
 with st.expander("ℹ️ - À propos de l'application :", expanded=False):
     st.write(
         """     
 Ce projet vise à predire le nombre idéal des caisse à mettre en place dans chaque magasin en se basant sur les KPIs, feedback, localisation, type de clientèle... """
     )
+    st.write("@Copyrights to Seyf GOUMEIDA")
+
     
 st.markdown("")
 #--------------------------------------------------------------------------------
