@@ -155,14 +155,24 @@ if (option=="Résultats"):
 	if(optionResult=="LR" ):
 		filepath = "./Results/LR/MinMaxAvgReal.csv"	
 		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
+		result = result.drop(columns=['Unnamed: 0'])
+		result = result.drop(columns=['stoanabelkey'])
+		result = result.rename(columns=['stoanabelkey':'Magasin'])
+
 		result
 	elif(optionResult=="Tree"):
 		filepath = "./Results/Tree/MinMaxAvgRealTree.csv"	
 		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
+		result = result.drop(columns=['Unnamed: 0'])
+		result = result.drop(columns=['stoanabelkey'])
+		result = result.rename(columns=['stoanabelkey':'Magasin'])
 		result
 	else:
 		filepath = "./Results/KNR/MinMaxAvgRealKNR.csv"	
-		result = pd.read_csv(filepath, sep=";",encoding='latin-1')
+		result = pd.read_csv(filepath, sep=";",encoding='latin-1')		
+		result = result.drop(columns=['Unnamed: 0'])
+		result = result.drop(columns=['stoanabelkey'])
+		result = result.rename(columns=['stoanabelkey':'Magasin'])
 		result   
 	   
 	   
