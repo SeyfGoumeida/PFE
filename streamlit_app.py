@@ -107,7 +107,7 @@ if (option=="Passage Client"):
 	with expander:
 		magasinsIntegres = passageClient["Magasin"].groupby("Magasin").values
 		magasinsIntegres
-		optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= list(magasinsIntegres)
+		#optionNomMagasin = expander.selectbox('Selectionner un magasin :',options= list(magasinsIntegres)
 		magasinPassageCleint = passageClient[passageClient['Magasin'] == optionNomMagasin]
 		fig6, ax6 = plt.subplots()
 		ax6.set_title('Box Plot du passage client')
