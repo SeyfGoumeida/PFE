@@ -131,8 +131,10 @@ if (option=="Systemes de scoring"):
 	optionScoring = st.selectbox('Selectionner un systeme :',options= ["Attente en caisse - Non pénalisant","Attente en caisse - pénalisant","Redondance - Picasso"])
 	filepath1_2 = "./Results/Scoring/Scoring1_2.csv"
 	scoring1_2 = pd.read_csv(filepath1_2, sep=";",encoding='latin-1')
+	scoring1_2= scoring1_2.rename(columns={"Unnamed: 0":"Classement"})
 	filepath3 = "./Results/Scoring/Scoring3.csv"
 	scoring3 = pd.read_csv(filepath3, sep=";",encoding='latin-1')
+	scoring3= scoring3.rename(columns={"Unnamed: 0":"Classement"})
 	if(optionScoring=="Attente en caisse - Non pénalisant" or optionScoring=="Attente en caisse - pénalisant"):
 		scoring1_2
 	else:
