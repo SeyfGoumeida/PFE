@@ -106,6 +106,7 @@ if (option=="Passage Client"):
 	with expander:
 		sns.set(rc ={'figure.figsize':(8,6)})
 		#for i in range(0,len(list_anabel)):
+		list_anabel=sorted(list(set(passageClient["Code"].values)))
 		magasinPassageCleint = passageClient[passageClient['Code'] == list_anabel[0]]
 		plt.figure()
 		sns.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
