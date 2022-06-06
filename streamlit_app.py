@@ -104,7 +104,7 @@ if (option=="Passage Client"):
 	
 	expander = st.expander("", expanded=False)
 	with expander:
-		optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsIntegre["Nom d'usage"].values))
+		optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(passageClient["Magasin"].values))
 		magasinPassageCleint = passageClient[passageClient['Magasin'] == optionNomMagasin]
 		fig6, ax6 = plt.subplots()
 		ax6.set_title('Box Plot du passage client')
