@@ -129,4 +129,18 @@ if (option=="Passage Client"):
 if (option=="Systemes de scoring"):
 	st.markdown("## 🥇🥈🥉 Systemes de scoring : ")	
 	optionScoring = st.selectbox('Selectionner un systeme :',options= ["Attente en caisse - Non pénalisant","Attente en caisse - pénalisant","Redondance - Picasso"])
-
+	filepath1 = "./Results/Scoring/Scoring1_2.csv"
+	scoring1_2 = pd.read_csv(filepath, sep=",",encoding='latin-1')
+	filepath2 = "./Results/Scoring/Scoring3.csv"
+	scoring3 = pd.read_csv(filepath, sep=",",encoding='latin-1')
+	if(optionScoring=="Attente en caisse - Non pénalisant" or optionScoring=="Attente en caisse - pénalisant"):
+		scoring1_2
+	else:
+		scoring3
+	   
+	   
+	   
+	   
+	   
+	   
+	   
