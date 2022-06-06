@@ -111,8 +111,15 @@ if (option=="Passage Client"):
 		fig1, ax1 = plt.subplots()
 		ax1.set_title('Box Plot du passage client')
 		ax1.boxplot(sorted(magasinPassageCleint['nb_client_trad']),vert=False, notch=True)
+		
+		fig2, ax2 = plt.subplots()
+		ax2.set_title('Graphe du passage client')
+		ax2.scatterplot (x=magasinPassageCleint["Date"], y=magasinPassageCleint['nb_client_trad'], hue=magasinPassageCleint['Jour'],style=magasinPassageCleint['Jour'],size=magasinPassageCleint['Jour'])
+
 		#----------------------------------------------------------------------------------
 		c1, c2= st.columns(2)
 		c1.pyplot(fig1)
+		c2.pyplot(fig2)
+
 
 			
