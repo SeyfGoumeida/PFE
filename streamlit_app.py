@@ -114,7 +114,7 @@ if (option=="Passage Client"):
 		
 		fig2, ax2 = plt.subplots()
 		ax2.set_title('Graphe du passage client')
-		ax2.scatter (x=magasinPassageCleint["Date"], y=magasinPassageCleint['nb_client_trad'])
+		ax2.scatter (x=magasinPassageCleint["Date"], y=magasinPassageCleint['nb_client_trad'],style=magasinPassageCleint['Jour'],size=magasinPassageCleint['Jour'])
 
 		#----------------------------------------------------------------------------------
 		c1, c2= st.columns(2)
