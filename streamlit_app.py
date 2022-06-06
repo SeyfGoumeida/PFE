@@ -109,7 +109,7 @@ if (option=="Passage Client"):
 		magasinPassageCleint = passageClient[passageClient['Code'] == 7889]
 		magasinPassageCleint
 		plt.figure()
-		sns.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
-		plt.show()
+		fig = sns.boxplot(sorted(magasinPassageCleint['nb_client_trad']))
+		st.pyplot(fig)
 		c1, c2= st.columns(2)
 			
