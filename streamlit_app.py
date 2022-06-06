@@ -34,7 +34,7 @@ def space(num_lines=1):
         st.write("")
 #---------------------------------------------------------------------------------
 # Key words
-option = st.sidebar.selectbox('Pages :',("BaseMagasin","Passage Client","Systemes de scoring","Résultats" ))
+option = st.sidebar.selectbox('Pages :',("Résultats" ,"BaseMagasin","Passage Client","Systemes de scoring"))
 st.sidebar.write('You selected   :', option)
 
 #---------------------------------------------------------------------------------
