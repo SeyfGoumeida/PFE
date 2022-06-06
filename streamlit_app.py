@@ -137,10 +137,23 @@ if (option=="Systemes de scoring"):
 	filepath3 = "./Results/Scoring/Scoring3.csv"
 	scoring3 = pd.read_csv(filepath3, sep=";",encoding='latin-1')
 	scoring3= scoring3.rename(columns={"Unnamed: 0":"Classement"})
+	#----------------------------------------------------------------------------------
+	c1, c2= st.columns(2)
+
+
 	if(optionScoring=="Attente en caisse - Non pénalisant" or optionScoring=="Attente en caisse - pénalisant"):
-		scoring1_2
+		c2.scoring1_2
+		c1.write("Il consiste a aﬀecter des points à un magasin dans chaque quart d’heure d’ouverture selon
+le nombre des clients dans l’attente en caisse. plus un magasin a de l’attente moins de point il
+aura.
+• 0 clients dans l’attente en caisse : 3 points
+• 1 clients dans l’attente en caisse : 2 points
+• 2 clients dans l’attente en caisse : 1 points
+• 3 clients ou plus dans l’attente en caisse : 0 points
+z Ce système favorise les magasins qui ont moins d’attente mais il ne pénalise pas ceux qui ont
+trop d’attente, c’est pour cela on a proposé un deuxième système de scoring")
 	else:
-		scoring3
+		c2.scoring3
 	   
 	   
 	   
