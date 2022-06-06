@@ -113,6 +113,5 @@ if (option=="Passage Client"):
 		plt.figure()
 		sns.scatterplot (x=magasinPassageCleint["date"], y=magasinPassageCleint['nb_client_trad'], hue=magasinPassageCleint['Jour'],style=magasinPassageCleint['Jour'],size=magasinPassageCleint['Jour'])
 		plt.show()
-		expander.
 		c1, c2= st.columns(2)
 			
