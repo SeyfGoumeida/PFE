@@ -122,5 +122,4 @@ if (option=="Passage Client"):
 if (option=="Systemes de scoring"):
 	st.markdown("## 🥇🥈🥉 Systemes de scoring : ")	
 	optionScoring = st.selectbox('Selectionner un systeme :',options= ["Attente en caisse - Non pénalisant","Attente en caisse - pénalisant","Redondance - Picasso"])
--
 
