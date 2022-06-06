@@ -132,6 +132,8 @@ if (option=="Systemes de scoring"):
 	filepath1_2 = "./Results/Scoring/Scoring1_2.csv"
 	scoring1_2 = pd.read_csv(filepath1_2, sep=";",encoding='latin-1')
 	scoring1_2= scoring1_2.rename(columns={"Unnamed: 0":"Classement"})
+	scoring1_2= scoring1_2.rename(columns={"Scoring_x":"Non pénalisant"})
+	scoring1_2= scoring1_2.rename(columns={"Scoring_y":"Pénalisant"})
 	filepath3 = "./Results/Scoring/Scoring3.csv"
 	scoring3 = pd.read_csv(filepath3, sep=";",encoding='latin-1')
 	scoring3= scoring3.rename(columns={"Unnamed: 0":"Classement"})
