@@ -76,8 +76,10 @@ if (option=="BaseMagasin"):
 			c1.metric(label="Nombre des magasins ", value=len(magasinsFranchise))
 			c1.write(magasinsFranchise) 
 			optionNomMagasin = c2.selectbox('Selectionner un magasin :',options= list(magasinsFranchise["Nom d'usage"].values))
-			c1.text(optionNomMagasin)
-#------------------------------------------------------------------------------------------------------------------------
+			c2.metric(label="Nombre de caisses traditionnelles :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Nombre Caisses (hors SCO et périphéries)"])[0])
+			c2.metric(label="Nombre de caisses SCO :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Nombre total de Caisses SCO"])[0])
+			c2.metric(label="Cluster du magasin :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster"])[0])
+			c2.metric(label="Type de clients :", value= list(BaseMagasin.loc[BaseMagasin["Nom d'usage"]==optionNomMagasin]["Cluster Profil de Clientèle"])[0])#------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([9,3])
 expander1 = c1.expander('Most frequente works :', expanded=False)
 expander2 = c2.expander('Show cluster words : ', expanded=False)
