@@ -122,4 +122,7 @@ if (option=="Passage Client"):
 		c2.pyplot(fig2)
 
 	passageClient
-			
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+if (option=="Systemes de scoring"):
+	st.markdown("## 🥇🥈🥉 Systemes de scoring : ")	
+
