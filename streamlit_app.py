@@ -158,6 +158,7 @@ if (option=="Résultats"):
 		result = result.drop(columns=['Unnamed: 0'])
 		result = result.drop(columns=['stoanabelkey'])
 		result = result.rename(columns={'stoanabelkey':'Magasin'})
+		result = result.rename(columns={'real':'Ground True'})
 
 		result
 	elif(optionResult=="Tree"):
@@ -166,6 +167,7 @@ if (option=="Résultats"):
 		result = result.drop(columns=['Unnamed: 0'])
 		result = result.drop(columns=['stoanabelkey'])
 		result = result.rename(columns={'stoanabelkey':'Magasin'})
+		result = result.rename(columns={'real':'Ground True'})
 		result
 	else:
 		filepath = "./Results/KNR/MinMaxAvgRealKNR.csv"	
@@ -173,6 +175,7 @@ if (option=="Résultats"):
 		result = result.drop(columns=['Unnamed: 0'])
 		result = result.drop(columns=['stoanabelkey'])
 		result = result.rename(columns={'stoanabelkey':'Magasin'})
+		result = result.rename(columns={'real':'Ground True'})
 		result   
 	   
 	   
