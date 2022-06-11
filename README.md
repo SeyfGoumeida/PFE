@@ -1,2 +1,2 @@
 # PFE
-Streamlit aweb application for Active learning using selective sampling 
+Streamlit web application for Active learning using selective sampling 
